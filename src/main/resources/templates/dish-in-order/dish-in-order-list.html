@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delivery</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div th:switch="${dishInOrder}">
+    <h2 th:case="null">No order found!</h2>
+    <div th:case="*">
+        <h2 align="center">Заказы</h2>
+        <br>
+        <table>
+            <thead>
+            <tr>
+                <th>Код</th>
+                <th>Название блюда</th>
+                <th>Адрес</th>
+                <th>Номер телефона</th>
+                <th>Дата</th>
+                <th>Количество</th>
+                <th>Изменить</th>
+                <th>Удалить</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="d : ${dishInOrder}">
+                <td th:text="${d.getIdDishes()}"></td>
+                <td th:text="${d.getMenu().getDish().getNameDishes()}"></td>
+                <td th:text="${d.getAddress()}"></td>
+                <td th:text="${d.getPhoneNumber()}"></td>
+                <td th:text="${d.getDate()}"></td>
+                <td th:text="${d.getAmount()}"></td>
+                <td><a th:href="@{dish-in-order-update/{id}(id=${d.getIdDishes()})}" class="double-border-button">Edit</a></td>
+                <td><a th:href="@{dish-in-order-delete/{id}(id=${d.getIdDishes()})}" class="double-border-button">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/dish-in-order-create" class="double-border-button">Create order</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Update</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/form-for-add.css" th:href="@{/assets/css/form-for-add.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div>
+    <h1>Редактирование</h1>
+    <div th:each="i : ${ingredient}">
+        <form method="post" class="add">
+            <div class="group">
+                <input th:value="${i.getNameIngredients()}" type="text" name="nameIngredient" autocomplete="off" required>
+                <span class="bar"></span>
+                <label>Наименование ингредиента</label>
+            </div>
+            <div class="group">
+                <input th:value="${i.getMeasure()}" type="text" name="measure" autocomplete="off" required>
+                <span class="bar"></span>
+                <label>Единица измерения</label>
+            </div>
+            <button type="submit" class="double-border-button">ИЗМЕНИТЬ</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

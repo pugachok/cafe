@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Update</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/form-for-add.css" th:href="@{/assets/css/form-for-add.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div>
+    <h1>Редактирование</h1>
+    <div th:each="o : ${order}">
+        <form method="post" class="add">
+            <div class="group">
+                <p>
+                    <select name="nameCoworker">
+                        <option th:each="c:${coworker}"
+                                th:value="${c.getFio()}"
+                                th:text="${c.getFio()}"
+                                th:type="text"></option>
+                    </select>
+                </p>
+            </div>
+            <div class="group">
+                <p>
+                    <select name="arrayNameDish">
+                        <option th:each="m:${menu}"
+                                th:value="${m.getDish().getNameDishes()} + '|' + ${m.getDate()}"
+                                th:text="${m.getDish().getNameDishes() + ' | ' + m.getDate()}"
+                                th:type="text"></option>
+                    </select>
+                </p>
+            </div>
+            <div class="group">
+                <input th:value="${o.getDateOrder()}" type="date" name="date" autocomplete="off" required>
+                <span class="bar"></span>
+            </div>
+            <div class="group">
+                <input th:value="${o.getTime()}" type="time" name="time" autocomplete="off" required>
+                <span class="bar"></span>
+            </div>
+            <div class="group">
+                <input th:value="${o.getTableNumber()}" type="number" name="numberTable" autocomplete="off" required>
+                <span class="bar"></span>
+                <label>Номер столика</label>
+            </div>
+            <div class="group">
+                <input th:value="${o.getAmount()}" type="number" name="count" autocomplete="off" required>
+                <span class="bar"></span>
+                <label>Количество</label>
+            </div>
+
+            <button type="submit" class="double-border-button">ИЗМЕНИТЬ</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

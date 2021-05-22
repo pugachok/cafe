@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create dish</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/form-for-add.css" th:href="@{/assets/css/form-for-add.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div>
+    <h1>Добавление блюда</h1>
+    <form action="/dish-create" method="post" class="add">
+        <div class="group">
+            <input type="text" name="nameDish" autocomplete="off" required>
+            <span class="bar"></span>
+            <label>Название блюда</label>
+        </div>
+        <div class="group">
+            <input type="text" name="edIzmereniya" autocomplete="off" required>
+            <span class="bar"></span>
+            <label>Единица измерения</label>
+        </div>
+        <button type="submit" class="double-border-button">ДОБАВИТЬ</button>
+    </form>
+</div>
+</body>
+</html>

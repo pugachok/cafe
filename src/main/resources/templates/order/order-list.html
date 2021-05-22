@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div th:switch="${order}">
+    <h2 th:case="null">No order found!</h2>
+    <div th:case="*">
+        <h2 align="center">Заказы</h2>
+        <br>
+        <table>
+            <thead>
+            <tr>
+                <th>Код</th>
+                <th>ФИО Сотрудника</th>
+                <th>Название блюда</th>
+                <th>Дата</th>
+                <th>Время</th>
+                <th>Номер столика</th>
+                <th>Количество</th>
+                <th>Изменить</th>
+                <th>Удалить</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="o : ${order}">
+                <td th:text="${o.getIdOrder()}"></td>
+                <td th:text="${o.getCoworker().getFio()}"></td>
+                <td th:text="${o.getMenu().getDish().getNameDishes()}"></td>
+                <td th:text="${o.getDateOrder()}"></td>
+                <td th:text="${o.getTime()}"></td>
+                <td th:text="${o.getTableNumber()}"></td>
+                <td th:text="${o.getAmount()}"></td>
+                <td><a th:href="@{order-update/{id}(id=${o.getIdOrder()})}" class="double-border-button">Edit</a></td>
+                <td><a th:href="@{order-delete/{id}(id=${o.getIdOrder()})}" class="double-border-button">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/order-create" class="double-border-button">Create order</a></p>
+</div>
+</body>
+</html>

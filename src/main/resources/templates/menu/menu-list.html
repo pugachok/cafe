@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Menu</title>
+        <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">
+        <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">
+        <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">
+    </head>
+    <body>
+        <header th:insert="blocks/header :: header"></header>
+        <div th:switch="${menu}">
+            <h2 th:case="null">No menu found!</h2>
+            <div th:case="*">
+                <h2 align="center">Меню</h2>
+                <br>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Код</th>
+                            <th>Наименование</th>
+                            <th>Цена</th>
+                            <th>Дата</th>
+                            <th>Изменить</th>
+                            <th>Удалить</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="m : ${menu}">
+                            <td th:text="${m.getIdMenu()}"></td>
+                            <td th:text="${m.getDish().getNameDishes()}"></td>
+                            <td th:text="${m.getPrice()}"></td>
+                            <td th:text="${m.getDate().toString()}"></td>
+                            <td><a th:href="@{menu-update/{id}(id=${m.getIdMenu()})}" class="double-border-button">Edit</a></td>
+                            <td><a th:href="@{menu-delete/{id}(id=${m.getIdMenu()})}" class="double-border-button">Delete</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><a href="/menu-create" class="double-border-button">Create menu</a></p>
+        </div>
+    </body>
+</html>

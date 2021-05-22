@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingredients</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div th:switch="${ingredient}">
+    <h2 th:case="null">No ingredient found!</h2>
+    <div th:case="*">
+        <h2 align="center">Ингредиенты</h2>
+        <br>
+        <table>
+            <thead>
+            <tr>
+                <th>Код</th>
+                <th>Наименование ингредиента</th>
+                <th>Единица измерения</th>
+                <th>Изменить</th>
+                <th>Удалить</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="i : ${ingredient}">
+                <td th:text="${i.getIdIngredient()}"></td>
+                <td th:text="${i.getNameIngredients()}"></td>
+                <td th:text="${i.getMeasure()}"></td>
+                <td><a th:href="@{ingredient-update/{id}(id=${i.getIdIngredient()})}" class="double-border-button">Edit</a></td>
+                <td><a th:href="@{ingredient-delete/{id}(id=${i.getIdIngredient()})}" class="double-border-button">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/ingredient-create" class="double-border-button">Add ingredient</a></p>
+</div>
+</body>
+</html>

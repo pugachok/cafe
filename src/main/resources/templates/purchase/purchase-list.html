@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div th:switch="${purchase}">
+    <h2 th:case="null">No purchase found!</h2>
+    <div th:case="*">
+        <h2 align="center">Заакупка</h2>
+        <br>
+        <table>
+            <thead>
+            <tr>
+                <th>Код</th>
+                <th>Наименование ингредиента</th>
+                <th>Количество</th>
+                <th>Поставщик</th>
+                <th>Дата</th>
+                <th>Цена</th>
+                <th>Изменить</th>
+                <th>Удалить</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="p : ${purchase}">
+                <td th:text="${p.getIdPurchase()}"></td>
+                <td th:text="${p.getIngredient().getNameIngredients()}"></td>
+                <td th:text="${p.getAmount()}"></td>
+                <td th:text="${p.getContractor().getNameContractors()}"></td>
+                <td th:text="${p.getDate()}"></td>
+                <td th:text="${p.getPrice()}"></td>
+                <td><a th:href="@{purchase-update/{id}(id=${p.getIdPurchase()})}" class="double-border-button">Edit</a></td>
+                <td><a th:href="@{purchase-delete/{id}(id=${p.getIdPurchase()})}" class="double-border-button">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/purchase-create" class="double-border-button">Create purchase</a></p>
+</div>
+</body>
+</html>

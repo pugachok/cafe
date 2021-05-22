@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Update</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/form-for-add.css" th:href="@{/assets/css/form-for-add.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div>
+    <h1>Редактирование сотрудника</h1>
+    <div th:each="el : ${coworkers}">
+    <form method="post" class="update">
+        <div class="group">
+            <input th:value="${el.fio}" type="text" name="fio">
+            <span class="bar"></span>
+            <label>ФИО СОТРУДНИКА</label>
+        </div>
+        <div class="group">
+            <p>
+                <select name="namePosition">
+                    <option th:each="p:${pos}"
+                            th:value="${p.getNamePosition()}"
+                            th:text="${p.getNamePosition()}"
+                            th:selected="${p.getNamePosition()} == ${el.getPosition().getNamePosition()}"
+                            th:type="text"></option>
+                </select>
+            </p>
+        </div>
+        <button type="submit" class="double-border-button">ИЗМЕНИТЬ</button>
+    </form>
+    </div>
+</div>
+</body>
+</html>

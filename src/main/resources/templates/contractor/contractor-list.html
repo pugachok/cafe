@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contractors</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div th:switch="${contractor}">
+    <h2 th:case="null">No contractor found!</h2>
+    <div th:case="*">
+        <h2 align="center">Поставщики</h2>
+        <br>
+        <table>
+            <thead>
+            <tr>
+                <th>Код</th>
+                <th>Наименование поставщика</th>
+                <th>Адрес</th>
+                <th>Номер телефона</th>
+                <th>Изменить</th>
+                <th>Удалить</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="c : ${contractor}">
+                <td th:text="${c.getIdContractors()}"></td>
+                <td th:text="${c.getNameContractors()}"></td>
+                <td th:text="${c.getAddress()}"></td>
+                <td th:text="${c.getPhoneNumber()}"></td>
+                <td><a th:href="@{contractor-update/{id}(id=${c.getIdContractors()})}" class="double-border-button">Edit</a></td>
+                <td><a th:href="@{contractor-delete/{id}(id=${c.getIdContractors()})}" class="double-border-button">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/contractor-create" class="double-border-button">ADD CONTRACTOR</a></p>
+</div>
+</body>
+</html>

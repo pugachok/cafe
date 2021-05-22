@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create coworker</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/style/menu-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/style/table-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/form-for-add.css" th:href="@{/style/form-for-add.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/style/button-create.css}">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div>
+    <h1>Добавление</h1>
+    <form action="/coworker-create" method="post" class="add">
+        <div class="group">
+            <input type="text" name="fio" autocomplete="off" required>
+            <span class="bar"></span>
+            <label>ФИО СОТРУДНИКА</label>
+        </div>
+        <div class="group">
+            <p>
+                <select name="namePosition">
+                    <option th:each="p:${pos}"
+                            th:value="${p.getNamePosition().toString()}"
+                            th:text="${p.getNamePosition()}"
+                            th:type="text"></option>
+                </select>
+            </p>
+<!--            <input type="text" name="namePosition" autocomplete="off" required>-->
+<!--            <span class="bar"></span>-->
+<!--            <label>ДОЛЖНОСТЬ</label>-->
+        </div>
+        <button type="submit" class="double-border-button">ДОБАВИТЬ СОТРУДНИКА</button>
+    </form>
+
+</div>
+
+</body>
+</html>

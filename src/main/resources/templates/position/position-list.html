@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Position</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div th:switch="${position}">
+    <h2 th:case="null">No position found!</h2>
+    <div th:case="*">
+        <h2 align="center">Должности</h2>
+        <br>
+        <table>
+            <thead>
+            <tr>
+                <th>Код</th>
+                <th>Долность</th>
+                <th>Изменить</th>
+                <th>Удалить</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="p : ${position}">
+                <td th:text="${p.idPosition}"></td>
+                <td th:text="${p.namePosition}"></td>
+                <td><a th:href="@{position-update/{id}(id=${p.idPosition})}" class="double-border-button">Edit</a></td>
+                <td><a th:href="@{position-delete/{id}(id=${p.idPosition})}" class="double-border-button">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/position-create" class="double-border-button">Create position</a></p>
+</div>
+</body>
+</html>

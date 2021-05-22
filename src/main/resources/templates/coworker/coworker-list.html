@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Coworker</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/style/menu-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/style/table-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/style/button-create.css}">
+<!--    <link rel="stylesheet" type="text/css" href="/assets/css/navbar.css" th:href="@{/assets/css/navbar.css}">-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>-->
+    <base href="/">
+
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<!--<main th:insert="blocks/navbar :: navbar">-->
+<!--</main>-->
+    <div th:switch="${coworker}">
+        <h2 th:case="null">No coworkers found!</h2>
+        <div th:case="*">
+            <h2 align="center">Сотрудники</h2>
+            <br>
+            <table>
+                <thead>
+                <tr>
+                    <th>Код</th>
+                    <th>ФИО</th>
+                    <th>Должность</th>
+                    <th>Изменить</th>
+                    <th>Удалить</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="c : ${coworker}">
+                    <td th:text="${c.idCoworker}"></td>
+                    <td th:text="${c.fio}"></td>
+                    <td th:text="${c.getPosition().getNamePosition()}"></td>
+                    <td><a th:href="@{coworker-update/{id}(id=${c.idCoworker})}" class="double-border-button">Edit</a></td>
+                    <td><a th:href="@{coworker-delete/{id}(id=${c.idCoworker})}" class="double-border-button">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><a href="/coworker-create" class="double-border-button">Create coworker</a></p>
+    </div>
+</body>
+</html>

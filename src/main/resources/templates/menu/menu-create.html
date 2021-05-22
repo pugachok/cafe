@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Create</title>
+        <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">
+        <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">
+        <link rel="stylesheet" type="text/css" href="/static/style/form-for-add.css" th:href="@{/assets/css/form-for-add.css}">
+        <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">
+    </head>
+    <body>
+        <header th:insert="blocks/header :: header"></header>
+
+        <div>
+            <h1>Добавление</h1>
+            <form action="/menu-create" method="post" class="add">
+                <div class="group">
+                    <p>
+                        <select name="nameDish">
+                            <option th:each="d:${dish}"
+                                    th:value="${d.getNameDishes().toString()}"
+                                    th:text="${d.getNameDishes()}"
+                                    th:type="text"></option>
+                        </select>
+                    </p>
+                </div>
+                <div class="group">
+                    <input type="text" name="price" autocomplete="off" required>
+                    <span class="bar"></span>
+                    <label>Цена</label>
+                </div>
+                <div class="group">
+                    <input type="date" name="date" autocomplete="off" required>
+                </div>
+
+                <button type="submit" class="double-border-button">ДОБАВИТЬ</button>
+            </form>
+
+        </div>
+
+    </body>
+</html>

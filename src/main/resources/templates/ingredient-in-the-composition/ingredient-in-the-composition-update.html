@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Update</title>
+    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/form-for-add.css" th:href="@{/assets/css/form-for-add.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div>
+    <h1>Редактирование</h1>
+    <div th:each="i : ${ingredientComposition}">
+        <form method="post" class="add">
+            <div class="group">
+                <p>
+                    <select name="nameIngredient">
+                        <option th:each="ingr:${ingredient}"
+                                th:value="${ingr.getNameIngredients()}"
+                                th:text="${ingr.getNameIngredients()}"
+                                th:type="text"></option>
+                    </select>
+                </p>
+            </div>
+            <div class="group">
+                <p>
+                    <select name="nameDish">
+                        <option th:each="d:${dish}"
+                                th:value="${d.getNameDishes()}"
+                                th:text="${d.getNameDishes()}"
+                                th:type="text"></option>
+                    </select>
+                </p>
+            </div>
+            <div class="group">
+                <input th:value="${i.getAmount()}" type="number" name="count" autocomplete="off" required>
+                <span class="bar"></span>
+                <label>Количество</label>
+            </div>
+            <button type="submit" class="double-border-button">ИЗМЕНИТЬ</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
