@@ -1,17 +1,90 @@
 <div th:fragment="header">
-    <div class="widget">
-        <h3 class="widget-title">Кафе</h3>
-        <ul class="widget-list">
-            <li><a href="/position">Должности</a></li>
-            <li><a href="/coworker">Сотрудники</a></li>
-            <li><a href="/order">Заказы</a></li>
-            <li><a href="/menu">Меню</a></li>
-            <li><a href="/dish">Блюда</a></li>
-            <li><a href="/dish-in-order">Блюда в доставке</a></li>
-            <li><a href="/ingredient-in-the-composition">Ингредиенты в составе</a></li>
-            <li><a href="/ingredient">Ингредиенты</a></li>
-            <li><a href="/purchase">Закупка</a></li>
-            <li><a href="/contractor">Поставщики</a></li>
-        </ul>
+    <div class="main-menu">
+        <header class="header">
+            <a href="index.html" class="logo">Кафе KAVA</a>
+            <button type="button" class="button-close fa fa-times js__menu_close"></button>
+            <div class="user">
+                <a href="#" class="avatar"><img src="https://ibb.co/3s9k6gx" alt=""><span class="status online"></span></a>
+                <h5 class="name"><a>Администратор</a></h5>
+                <!-- /.name -->
+                <div class="control-wrap js__drop_down">
+                    <i class="fa fa-caret-down js__drop_down_button"></i>
+                    <div class="control-list">
+                        <div class="control-item"><a href="profile.html"><i class="fa fa-user"></i> Profile</a></div>
+                        <div class="control-item"><a href="#"><i class="fa fa-gear"></i> Settings</a></div>
+                        <div class="control-item">
+                            <div class="control-item">
+                                <a href="javascript: document.outForm.submit()" role="menuitem"><i class="fa fa-sign-out"></i> Log out
+                                    <form name="outForm" th:action="@{/auth/logout}" method="post" th:hidden="true">
+                                        <input hidden type="submit" value="Sign Out"/>
+                                    </form>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="content">
+
+            <div class="navigation">
+
+                <h5 class="title">Навигация</h5>
+                <ul class="menu js__accordion">
+                    <li>
+                        <a class="waves-effect" href="calendar.html"><i class="menu-icon fa fa-calendar"></i><span>Календарь</span></a>
+                    </li>
+                    <li>
+                        <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-th-large"></i><span>Формы</span><span class="menu-arrow fa fa-angle-down"></span></a>
+                        <ul class="sub-menu js__content">
+                            <li><a href="/position-create">Должности</a></li>
+                            <li><a href="/coworker-create">Сотрудники</a></li>
+                            <li><a href="/order-create">Заказы</a></li>
+                            <li><a href="/menu-create">Меню</a></li>
+                            <li><a href="/dish-create">Блюда</a></li>
+                            <li><a href="/dish-in-order-create">Блюда в доставке</a></li>
+                            <li><a href="/ingredient-in-the-composition-create">Ингредиенты в составе</a></li>
+                            <li><a href="/ingredient-create">Ингредиенты</a></li>
+                            <li><a href="/purchase-create">Закупка</a></li>
+                            <li><a href="/contractor-create">Поставщики</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-table"></i><span>Таблицы</span><span class="menu-arrow fa fa-angle-down"></span></a>
+                        <ul class="sub-menu js__content">
+                            <li><a href="/position">Должности</a></li>
+                            <li><a href="/coworker">Сотрудники</a></li>
+                            <li><a href="/order">Заказы</a></li>
+                            <li><a href="/menu">Меню</a></li>
+                            <li><a href="/dish">Блюда</a></li>
+                            <li><a href="/dish-in-order">Блюда в доставке</a></li>
+                            <li><a href="/ingredient-in-the-composition">Ингредиенты в составе</a></li>
+                            <li><a href="/ingredient">Ингредиенты</a></li>
+                            <li><a href="/purchase">Закупка</a></li>
+                            <li><a href="/contractor">Поставщики</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed-navbar">
+        <div class="pull-left">
+            <button type="button" class="menu-mobile-button glyphicon glyphicon-menu-hamburger js__menu_mobile"></button>
+            <h1 class="page-title">Меню</h1>
+        </div>
+        <div class="pull-right">
+            <div class="ico-item">
+                <a href="#" class="ico-item fa fa-search js__toggle_open" data-target="#searchform-header"></a>
+                <form action="#" id="searchform-header" class="searchform js__toggle"><input type="search" placeholder="Search..." class="input-search"><button class="fa fa-search button-search" type="submit"></button></form>
+            </div>
+            <div class="ico-item fa fa-arrows-alt js__full_screen"></div>
+
+            <a href="javascript: document.logoutForm.submit()" role="menuitem" class="ico-item fa fa-power-off"></a>
+            <form name="logoutForm" th:action="@{/auth/logout}" method="post" th:hidden="true">
+                <input hidden type="submit" value="Sign Out"/>
+            </form>
+        </div>
     </div>
 </div>
