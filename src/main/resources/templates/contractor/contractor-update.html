@@ -1,40 +1,3 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
-<!--    <title>Update</title>-->
-<!--    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">-->
-<!--    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">-->
-<!--    <link rel="stylesheet" type="text/css" href="/static/style/form-for-add.css" th:href="@{/assets/css/form-for-add.css}">-->
-<!--    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">-->
-<!--</head>-->
-<!--<body>-->
-<!--<header th:insert="blocks/header :: header"></header>-->
-<!--<div>-->
-<!--    <h1>Редактирование</h1>-->
-<!--    <div th:each="c : ${contractor}">-->
-<!--        <form method="post" class="add">-->
-<!--            <div class="group">-->
-<!--                <input th:value="${c.getNameContractors()}" type="text" name="nameContractor" autocomplete="off" required>-->
-<!--                <span class="bar"></span>-->
-<!--                <label>Наименование поставщика</label>-->
-<!--            </div>-->
-<!--            <div class="group">-->
-<!--                <input th:value="${c.getAddress()}" type="text" name="address" autocomplete="off" required>-->
-<!--                <span class="bar"></span>-->
-<!--                <label>Адрес</label>-->
-<!--            </div>-->
-<!--            <div class="group">-->
-<!--                <input th:value="${c.getPhoneNumber()}" type="text" name="phoneNumber" autocomplete="off" required>-->
-<!--                <span class="bar"></span>-->
-<!--                <label>Номер телефона</label>-->
-<!--            </div>-->
-<!--            <button type="submit" class="double-border-button">ИЗМЕНИТЬ</button>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -57,7 +20,7 @@
 <div id="wrapper">
     <div class="main-content">
         <div class="row small-spacing">
-            <div class="col-lg-6 col-xs-12">
+            <div class="col-lg-12 col-xs-12">
                 <div class="box-content card white">
                     <h4 class="box-title">Изменение</h4>
                     <div th:each="c : ${contractor}" class="card-content">
