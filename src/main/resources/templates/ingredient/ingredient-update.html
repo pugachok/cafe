@@ -1,32 +1,98 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
+<!--    <title>Update</title>-->
+<!--    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">-->
+<!--    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">-->
+<!--    <link rel="stylesheet" type="text/css" href="/static/style/form-for-add.css" th:href="@{/assets/css/form-for-add.css}">-->
+<!--    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">-->
+<!--</head>-->
+<!--<body>-->
+<!--<header th:insert="blocks/header :: header"></header>-->
+<!--<div>-->
+<!--    <h1>Редактирование</h1>-->
+<!--    <div th:each="i : ${ingredient}">-->
+<!--        <form method="post" class="add">-->
+<!--            <div class="group">-->
+<!--                <input th:value="${i.getNameIngredients()}" type="text" name="nameIngredient" autocomplete="off" required>-->
+<!--                <span class="bar"></span>-->
+<!--                <label>Наименование ингредиента</label>-->
+<!--            </div>-->
+<!--            <div class="group">-->
+<!--                <input th:value="${i.getMeasure()}" type="text" name="measure" autocomplete="off" required>-->
+<!--                <span class="bar"></span>-->
+<!--                <label>Единица измерения</label>-->
+<!--            </div>-->
+<!--            <button type="submit" class="double-border-button">ИЗМЕНИТЬ</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Update</title>
-    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/assets/css/menu-style.css}">
-    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/assets/css/table-style.css}">
-    <link rel="stylesheet" type="text/css" href="/static/style/form-for-add.css" th:href="@{/assets/css/form-for-add.css}">
-    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/assets/css/button-create.css}">
+    <meta charset="UTF-8">
+    <title>Добавление</title>
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="/static/styles/style.min.css" th:href="@{/styles/style.min.css}">
+    <!-- mCustomScrollbar -->
+    <link rel="stylesheet" href="/static/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css" th:href="@{/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css}">
+    <!-- Waves Effect -->
+    <link rel="stylesheet" href="/static/plugin/waves/waves.min.css" th:href="@{/plugin/waves/waves.min.css}">
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="/static/plugin/sweet-alert/sweetalert.css" th:href="@{/plugin/sweet-alert/sweetalert.css}">
+    <!-- Color Picker -->
+    <link rel="stylesheet" href="/static/color-switcher/color-switcher.min.css" th:href="@{/color-switcher/color-switcher.min.css}">
+    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/style/button-create.css}">
 </head>
 <body>
-<header th:insert="blocks/header :: header"></header>
-<div>
-    <h1>Редактирование</h1>
-    <div th:each="i : ${ingredient}">
-        <form method="post" class="add">
-            <div class="group">
-                <input th:value="${i.getNameIngredients()}" type="text" name="nameIngredient" autocomplete="off" required>
-                <span class="bar"></span>
-                <label>Наименование ингредиента</label>
+<div th:insert="blocks/header :: header"></div>
+<div id="wrapper">
+    <div class="main-content">
+        <div class="row small-spacing">
+            <div class="col-lg-12 col-xs-12">
+                <div class="box-content card white">
+                    <h4 class="box-title">Добавление</h4>
+                    <div th:each="i : ${ingredient}" class="card-content">
+                        <form method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inp-type-1" class="col-sm-3 control-label">Наименование ингредиента</label>
+                                <div class="col-sm-9">
+                                    <input th:value="${i.getNameIngredients()}" type="text" class="form-control" id="inp-type-1" name="nameIngredient" autocomplete="off" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inp-type-1" class="col-sm-3 control-label">Единица измерения</label>
+                                <div class="col-sm-9">
+                                    <input th:value="${i.getMeasure()}" type="text" class="form-control" id="inp-type-2" name="measure" autocomplete="off" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-orange waves-effect waves-light">Добавить</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="group">
-                <input th:value="${i.getMeasure()}" type="text" name="measure" autocomplete="off" required>
-                <span class="bar"></span>
-                <label>Единица измерения</label>
-            </div>
-            <button type="submit" class="double-border-button">ИЗМЕНИТЬ</button>
-        </form>
+        </div>
+        <footer class="footer">
+            <ul class="list-inline">
+                <li>2021 © Pugachok.</li>
+            </ul>
+        </footer>
     </div>
 </div>
+<script src="/static/scripts/jquery.min.js" th:src="@{/scripts/jquery.min.js}"></script>
+<script src="/static/scripts/modernizr.min.js" th:src="@{/scripts/modernizr.min.js}"></script>
+<script src="/static/plugin/bootstrap/js/bootstrap.min.js" th:src="@{/plugin/bootstrap/js/bootstrap.min.js}"></script>
+<script src="/static/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js" th:src="@{/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js}"></script>
+<script src="/static/plugin/nprogress/nprogress.js" th:src="@{/plugin/nprogress/nprogress.js}"></script>
+<script src="/static/plugin/sweet-alert/sweetalert.min.js" th:src="@{/plugin/sweet-alert/sweetalert.min.js}"></script>
+<script src="/static/plugin/waves/waves.min.js" th:src="@{/plugin/waves/waves.min.js}"></script>
+<!-- Full Screen Plugin -->
+<script src="/static/plugin/fullscreen/jquery.fullscreen-min.js" th:src="@{/plugin/fullscreen/jquery.fullscreen-min.js}"></script>
+
+<script src="/static/scripts/main.min.js" th:src="@{/scripts/main.min.js}"></script>
+<script src="/static/color-switcher/color-switcher.min.js" th:src="@{/color-switcher/color-switcher.min.js}"></script>
 </body>
 </html>
