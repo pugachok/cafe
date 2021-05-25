@@ -1,5 +1,6 @@
 package com.cafe.appcafe.cafe.controllers;
 
+import com.cafe.appcafe.cafe.export.MenuExcelExporter;
 import com.cafe.appcafe.cafe.models.Dish;
 import com.cafe.appcafe.cafe.models.Menu;
 import com.cafe.appcafe.cafe.service.MenuService;
@@ -12,6 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -76,6 +82,24 @@ public class MenuController {
                          @RequestParam String date) {
         menuService.update(id, nameDish, price, date);
         return "redirect:/menu";
+    }
+
+    @GetMapping("/menu/export")
+    public void exportToExcel(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        String headerKey = "Content-Disposition";
+
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        String currentDateTime = dateFormatter.format(new Date());
+        String fileName = "menu_" + currentDateTime + ".xlsx";
+        String headerValue = "attachment; filename=" + fileName;
+
+        response.setHeader(headerKey, headerValue);
+
+        List<Menu> menuList = menuService.findAll();
+
+        MenuExcelExporter excelExporter = new MenuExcelExporter(menuList);
+        excelExporter.export(response);
     }
 
 }
