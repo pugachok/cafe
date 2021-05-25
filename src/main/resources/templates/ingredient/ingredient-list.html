@@ -59,13 +59,13 @@
                                     <td th:text="${i.getIdIngredient()}"></td>
                                     <td th:text="${i.getNameIngredients()}"></td>
                                     <td th:text="${i.getMeasure()}"></td>
-                                    <td><a th:href="@{ingredient-update/{id}(id=${i.getIdIngredient()})}" class="double-border-button">Edit</a></td>
-                                    <td><a th:href="@{ingredient-delete/{id}(id=${i.getIdIngredient()})}" class="double-border-button">Delete</a></td>
+                                    <td><a th:href="@{ingredient-update/{id}(id=${i.getIdIngredient()})}" class="btn btn-bordered waves-effect waves-light">изменить</a></td>
+                                    <td><a th:href="@{ingredient-delete/{id}(id=${i.getIdIngredient()})}" class="btn btn-bordered waves-effect waves-light">удалить</a></td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p><a href="/ingredient-create" class="double-border-button">Add ingredient</a></p>
+                        <p><a href="/ingredient-create" class="btn btn-bordered waves-effect waves-light">Добавить</a></p>
                     </div>
                 </div>
             </div>

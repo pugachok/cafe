@@ -61,13 +61,13 @@
                                             <td th:text="${m.getDish().getNameDishes()}"></td>
                                             <td th:text="${m.getPrice()}"></td>
                                             <td th:text="${m.getDate().toString()}"></td>
-                                            <td><a th:href="@{menu-update/{id}(id=${m.getIdMenu()})}" class="double-border-button">Edit</a></td>
-                                            <td><a th:href="@{menu-delete/{id}(id=${m.getIdMenu()})}" class="double-border-button">Delete</a></td>
+                                            <td><a th:href="@{menu-update/{id}(id=${m.getIdMenu()})}" class="btn btn-bordered waves-effect waves-light">изменить</a></td>
+                                            <td><a th:href="@{menu-delete/{id}(id=${m.getIdMenu()})}" class="btn btn-bordered waves-effect waves-light">удалить</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <p><a href="/menu-create" class="double-border-button">Create menu</a></p>
+                            <p><a href="/menu-create" class="btn btn-bordered waves-effect waves-light">Добавить</a></p>
                         </div>
                     </div>
                 </div>

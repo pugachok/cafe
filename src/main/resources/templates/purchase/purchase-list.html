@@ -63,13 +63,13 @@
                                     <td th:text="${p.getContractor().getNameContractors()}"></td>
                                     <td th:text="${p.getDate()}"></td>
                                     <td th:text="${p.getPrice()}"></td>
-                                    <td><a th:href="@{purchase-update/{id}(id=${p.getIdPurchase()})}" class="double-border-button">Edit</a></td>
-                                    <td><a th:href="@{purchase-delete/{id}(id=${p.getIdPurchase()})}" class="double-border-button">Delete</a></td>
+                                    <td><a th:href="@{purchase-update/{id}(id=${p.getIdPurchase()})}" class="btn btn-bordered waves-effect waves-light">изменить</a></td>
+                                    <td><a th:href="@{purchase-delete/{id}(id=${p.getIdPurchase()})}" class="btn btn-bordered waves-effect waves-light">удалить</a></td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p><a href="/purchase-create" class="double-border-button">Create purchase</a></p>
+                        <p><a href="/purchase-create" class="btn btn-bordered waves-effect waves-light">Добавить</a></p>
                     </div>
                 </div>
             </div>

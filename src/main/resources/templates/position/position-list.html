@@ -55,13 +55,13 @@
                                 <tr th:each="p : ${position}">
                                     <td th:text="${p.idPosition}"></td>
                                     <td th:text="${p.namePosition}"></td>
-                                    <td><a th:href="@{position-update/{id}(id=${p.idPosition})}" class="double-border-button">Edit</a></td>
-                                    <td><a th:href="@{position-delete/{id}(id=${p.idPosition})}" class="double-border-button">Delete</a></td>
+                                    <td><a th:href="@{position-update/{id}(id=${p.idPosition})}" class="btn btn-bordered waves-effect waves-light">изменить</a></td>
+                                    <td><a th:href="@{position-delete/{id}(id=${p.idPosition})}" class="btn btn-bordered waves-effect waves-light">удалить</a></td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p><a href="/position-create" class="double-border-button">Create position</a></p>
+                        <p><a href="/position-create" class="btn btn-bordered waves-effect waves-light">Добавить</a></p>
                     </div>
                 </div>
             </div>

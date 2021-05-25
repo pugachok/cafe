@@ -58,13 +58,13 @@
                                     <td th:text="${c.idCoworker}"></td>
                                     <td th:text="${c.fio}"></td>
                                     <td th:text="${c.getPosition().getNamePosition()}"></td>
-                                    <td><a th:href="@{coworker-update/{id}(id=${c.idCoworker})}" class="double-border-button">Edit</a></td>
-                                    <td><a th:href="@{coworker-delete/{id}(id=${c.idCoworker})}" class="double-border-button">Delete</a></td>
+                                    <td><a th:href="@{coworker-update/{id}(id=${c.idCoworker})}" class="btn btn-bordered waves-effect waves-light">изменить</a></td>
+                                    <td><a th:href="@{coworker-delete/{id}(id=${c.idCoworker})}" class="btn btn-bordered waves-effect waves-light">удалить</a></td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p><a href="/coworker-create" class="double-border-button">Create coworker</a></p>
+                        <p><a href="/coworker-create" class="btn btn-bordered waves-effect waves-light">добавить</a></p>
                     </div>
                 </div>
             </div>

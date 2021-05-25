@@ -61,13 +61,13 @@
                                     <td th:text="${c.getNameContractors()}"></td>
                                     <td th:text="${c.getAddress()}"></td>
                                     <td th:text="${c.getPhoneNumber()}"></td>
-                                    <td><a th:href="@{contractor-update/{id}(id=${c.getIdContractors()})}" class="double-border-button">Edit</a></td>
-                                    <td><a th:href="@{contractor-delete/{id}(id=${c.getIdContractors()})}" class="double-border-button">Delete</a></td>
+                                    <td><a th:href="@{contractor-update/{id}(id=${c.getIdContractors()})}" class="btn btn-bordered waves-effect waves-light">изменить</a></td>
+                                    <td><a th:href="@{contractor-delete/{id}(id=${c.getIdContractors()})}" class="btn btn-bordered waves-effect waves-light">удалить</a></td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p><a href="/contractor-create" class="double-border-button">ADD CONTRACTOR</a></p>
+                        <p><a href="/contractor-create" class="btn btn-bordered waves-effect waves-light">Добавить</a></p>
                     </div>
                 </div>
             </div>

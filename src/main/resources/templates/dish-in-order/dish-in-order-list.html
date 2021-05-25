@@ -65,13 +65,13 @@
                                     <td th:text="${d.getPhoneNumber()}"></td>
                                     <td th:text="${d.getDate()}"></td>
                                     <td th:text="${d.getAmount()}"></td>
-                                    <td><a th:href="@{dish-in-order-update/{id}(id=${d.getIdDishes()})}" class="double-border-button">Edit</a></td>
-                                    <td><a th:href="@{dish-in-order-delete/{id}(id=${d.getIdDishes()})}" class="double-border-button">Delete</a></td>
+                                    <td><a th:href="@{dish-in-order-update/{id}(id=${d.getIdDishes()})}" class="btn btn-bordered waves-effect waves-light">изменить</a></td>
+                                    <td><a th:href="@{dish-in-order-delete/{id}(id=${d.getIdDishes()})}" class="btn btn-bordered waves-effect waves-light">удалить</a></td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p><a href="/dish-in-order-create" class="double-border-button">Create order</a></p>
+                        <p><a href="/dish-in-order-create" class="btn btn-bordered waves-effect waves-light">Добавить</a></p>
                     </div>
                 </div>
             </div>

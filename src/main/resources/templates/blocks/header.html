@@ -1,7 +1,7 @@
 <div th:fragment="header">
     <div class="main-menu">
         <header class="header">
-            <a href="index.html" class="logo">Кафе KAVA</a>
+            <a href="/auth/index" class="logo">Кафе KAVA</a>
             <button type="button" class="button-close fa fa-times js__menu_close"></button>
             <div class="user">
                 <a href="#" class="avatar"><img src="https://ibb.co/3s9k6gx" alt=""><span class="status online"></span></a>
@@ -10,8 +10,6 @@
                 <div class="control-wrap js__drop_down">
                     <i class="fa fa-caret-down js__drop_down_button"></i>
                     <div class="control-list">
-                        <div class="control-item"><a href="profile.html"><i class="fa fa-user"></i> Profile</a></div>
-                        <div class="control-item"><a href="#"><i class="fa fa-gear"></i> Settings</a></div>
                         <div class="control-item">
                             <div class="control-item">
                                 <a href="javascript: document.outForm.submit()" role="menuitem"><i class="fa fa-sign-out"></i> Log out
@@ -32,7 +30,7 @@
                 <h5 class="title">Навигация</h5>
                 <ul class="menu js__accordion">
                     <li>
-                        <a class="waves-effect" href="calendar.html"><i class="menu-icon fa fa-calendar"></i><span>Календарь</span></a>
+                        <a class="waves-effect" href="/auth/index"><i class="menu-icon fa fa-calendar"></i><span>Календарь</span></a>
                     </li>
                     <li>
                         <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-th-large"></i><span>Формы</span><span class="menu-arrow fa fa-angle-down"></span></a>

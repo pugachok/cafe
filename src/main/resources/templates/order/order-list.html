@@ -65,13 +65,13 @@
                                     <td th:text="${o.getTime()}"></td>
                                     <td th:text="${o.getTableNumber()}"></td>
                                     <td th:text="${o.getAmount()}"></td>
-                                    <td><a th:href="@{order-update/{id}(id=${o.getIdOrder()})}" class="double-border-button">Edit</a></td>
-                                    <td><a th:href="@{order-delete/{id}(id=${o.getIdOrder()})}" class="double-border-button">Delete</a></td>
+                                    <td><a th:href="@{order-update/{id}(id=${o.getIdOrder()})}" class="btn btn-bordered waves-effect waves-light">изменить</a></td>
+                                    <td><a th:href="@{order-delete/{id}(id=${o.getIdOrder()})}" class="btn btn-bordered waves-effect waves-light">удалить</a></td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p><a href="/order-create" class="double-border-button">Create order</a></p>
+                        <p><a href="/order-create" class="btn btn-bordered waves-effect waves-light">Добавить</a></p>
                     </div>
                 </div>
             </div>
