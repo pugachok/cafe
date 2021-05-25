@@ -1,5 +1,6 @@
 package com.cafe.appcafe.cafe.controllers;
 
+import com.cafe.appcafe.cafe.exeption.ApiRequestException;
 import com.cafe.appcafe.cafe.models.Coworker;
 import com.cafe.appcafe.cafe.models.Position;
 import com.cafe.appcafe.cafe.service.CoworkerService;
@@ -45,7 +46,6 @@ public class CoworkerController {
     @PreAuthorize("hasAuthority('developers:write')")
     public String createCoworker(@RequestParam String fio,
                                  @RequestParam String namePosition) {
-
         coworkerService.saveCoworker(fio, namePosition);
         return "redirect:/coworker";
     }

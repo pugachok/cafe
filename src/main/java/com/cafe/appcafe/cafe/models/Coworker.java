@@ -1,11 +1,12 @@
 package com.cafe.appcafe.cafe.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
 @Table(name = "coworker")
-//  @SecondaryTable(name = "position")
 public class Coworker {
 
     @Id
@@ -13,6 +14,8 @@ public class Coworker {
     @Column(name = "id")
     private Long idCoworker;
 
+    @NotEmpty(message = "Поле не должно быть пустым")
+    @Size(min = 2, max = 30, message = "Поле должно быть от 2 до 30 символов")
     @Column(name = "fio")
     private String fio;
 

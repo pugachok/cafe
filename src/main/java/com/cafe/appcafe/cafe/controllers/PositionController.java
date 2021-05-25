@@ -1,5 +1,6 @@
 package com.cafe.appcafe.cafe.controllers;
 
+import com.cafe.appcafe.cafe.exeption.ApiRequestException;
 import com.cafe.appcafe.cafe.models.Position;
 import com.cafe.appcafe.cafe.service.PositionService;
 import org.springframework.beans.factory.annotation.Autowired;
