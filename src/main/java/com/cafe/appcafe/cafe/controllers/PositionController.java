@@ -1,6 +1,5 @@
 package com.cafe.appcafe.cafe.controllers;
 
-import com.cafe.appcafe.cafe.exeption.ApiRequestException;
 import com.cafe.appcafe.cafe.models.Position;
 import com.cafe.appcafe.cafe.service.PositionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import java.util.List;
 
 @Controller
@@ -62,12 +60,26 @@ public class PositionController {
         return "redirect:/position";
     }
 
+    @GetMapping("/page-400")
+    private String getPage400() {
+        return "error/page-400";
+    }
+
+    @GetMapping("/page-500")
+    private String getPage500() {
+        return "error/page-500";
+    }
+
     @GetMapping("/position-delete/{id}")
     @PreAuthorize("hasAuthority('developers:write')")
     public String positionDelete(@PathVariable(value = "id") long id) {
-        positionService.delete(id);
-        return "redirect:/position";
-    }
+        try{
+            positionService.delete(id);
+            return "redirect:/position";
+        } catch (Exception e) {
+            return "error/page-400";
+        }
 
+    }
 
 }

@@ -8,7 +8,6 @@
     <meta name="author" content="">
 
     <title>Заказы</title>
-    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/style/button-create.css}">
     <!-- Main Styles -->
     <link rel="stylesheet" type="text/css" href="/static/styles/style.min.css" th:href="@{/styles/style.min.css}">
     <!-- mCustomScrollbar -->
@@ -45,7 +44,6 @@
                             <table id="example" class="table table-striped table-bordered display" style="width:100%">
                                 <thead>
                                 <tr>
-                                    <th>Код</th>
                                     <th>ФИО Сотрудника</th>
                                     <th>Название блюда</th>
                                     <th>Дата</th>
@@ -58,7 +56,6 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="o : ${order}">
-                                    <td th:text="${o.getIdOrder()}"></td>
                                     <td th:text="${o.getCoworker().getFio()}"></td>
                                     <td th:text="${o.getMenu().getDish().getNameDishes()}"></td>
                                     <td th:text="${o.getDateOrder()}"></td>

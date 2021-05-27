@@ -8,7 +8,6 @@
     <meta name="author" content="">
 
     <title>Сотрудники</title>
-    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/style/button-create.css}">
     <!-- Main Styles -->
     <link rel="stylesheet" type="text/css" href="/static/styles/style.min.css" th:href="@{/styles/style.min.css}">
     <!-- mCustomScrollbar -->
@@ -46,7 +45,6 @@
                             <table id="example" class="table table-striped table-bordered display" style="width:100%">
                                 <thead>
                                 <tr>
-                                    <th>Код</th>
                                     <th>ФИО</th>
                                     <th>Должность</th>
                                     <th>Изменить</th>
@@ -55,7 +53,6 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="c : ${coworker}">
-                                    <td th:text="${c.idCoworker}"></td>
                                     <td th:text="${c.fio}"></td>
                                     <td th:text="${c.getPosition().getNamePosition()}"></td>
                                     <td><a th:href="@{coworker-update/{id}(id=${c.idCoworker})}" class="btn btn-bordered waves-effect waves-light">изменить</a></td>

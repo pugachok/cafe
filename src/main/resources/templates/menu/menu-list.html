@@ -8,9 +8,6 @@
     <meta name="author" content="">
 
     <title>Меню</title>
-    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/style/menu-style.css}">
-    <!--    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/style/table-style.css}">-->
-    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/style/button-create.css}">
     <!-- Main Styles -->
     <link rel="stylesheet" type="text/css" href="/static/styles/style.min.css" th:href="@{/styles/style.min.css}">
     <!-- mCustomScrollbar -->
@@ -47,7 +44,6 @@
                                 <table id="example" class="table table-striped table-bordered display" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>Код</th>
                                             <th>Наименование</th>
                                             <th>Цена</th>
                                             <th>Дата</th>
@@ -57,7 +53,6 @@
                                     </thead>
                                     <tbody>
                                         <tr th:each="m : ${menu}">
-                                            <td th:text="${m.getIdMenu()}"></td>
                                             <td th:text="${m.getDish().getNameDishes()}"></td>
                                             <td th:text="${m.getPrice()}"></td>
                                             <td th:text="${m.getDate().toString()}"></td>

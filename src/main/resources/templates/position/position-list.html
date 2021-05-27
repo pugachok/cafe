@@ -8,7 +8,6 @@
     <meta name="author" content="">
 
     <title>Должности</title>
-    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/style/button-create.css}">
     <!-- Main Styles -->
     <link rel="stylesheet" type="text/css" href="/static/styles/style.min.css" th:href="@{/styles/style.min.css}">
     <!-- mCustomScrollbar -->
@@ -45,7 +44,6 @@
                             <table id="example" class="table table-striped table-bordered display" style="width:100%">
                                 <thead>
                                 <tr>
-                                    <th>Код</th>
                                     <th>Долность</th>
                                     <th>Изменить</th>
                                     <th>Удалить</th>
@@ -53,10 +51,10 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="p : ${position}">
-                                    <td th:text="${p.idPosition}"></td>
                                     <td th:text="${p.namePosition}"></td>
                                     <td><a th:href="@{position-update/{id}(id=${p.idPosition})}" class="btn btn-bordered waves-effect waves-light">изменить</a></td>
                                     <td><a th:href="@{position-delete/{id}(id=${p.idPosition})}" class="btn btn-bordered waves-effect waves-light">удалить</a></td>
+
                                 </tr>
                                 </tbody>
                             </table>

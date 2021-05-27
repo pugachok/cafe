@@ -8,9 +8,6 @@
     <meta name="author" content="">
 
     <title>Ингредиенты</title>
-    <link rel="stylesheet" type="text/css" href="/static/style/menu-style.css" th:href="@{/style/menu-style.css}">
-    <!--    <link rel="stylesheet" type="text/css" href="/static/style/table-style.css" th:href="@{/style/table-style.css}">-->
-    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/style/button-create.css}">
     <!-- Main Styles -->
     <link rel="stylesheet" type="text/css" href="/static/styles/style.min.css" th:href="@{/styles/style.min.css}">
     <!-- mCustomScrollbar -->
@@ -47,7 +44,6 @@
                             <table id="example" class="table table-striped table-bordered display" style="width:100%">
                                 <thead>
                                 <tr>
-                                    <th>Код</th>
                                     <th>Наименование ингредиента</th>
                                     <th>Единица измерения</th>
                                     <th>Изменить</th>
@@ -56,7 +52,6 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="i : ${ingredient}">
-                                    <td th:text="${i.getIdIngredient()}"></td>
                                     <td th:text="${i.getNameIngredients()}"></td>
                                     <td th:text="${i.getMeasure()}"></td>
                                     <td><a th:href="@{ingredient-update/{id}(id=${i.getIdIngredient()})}" class="btn btn-bordered waves-effect waves-light">изменить</a></td>
