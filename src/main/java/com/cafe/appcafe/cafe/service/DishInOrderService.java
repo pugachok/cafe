@@ -32,6 +32,10 @@ public class DishInOrderService {
         return menuRepository.findAll();
     }
 
+    public List<DishInOrder> findAllActualDishInOrder(String date) {
+        return dishInOrderRepository.findDishInOrderByDate(date);
+    }
+
     public List<DishInOrder> dishInOrderList(Long id) {
         Optional<DishInOrder> dishInOrder = dishInOrderRepository.findById(id);
         ArrayList<DishInOrder> res = new ArrayList<>();

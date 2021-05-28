@@ -23,7 +23,7 @@ public class PositionController {
     }
 
     @GetMapping("/position")
-    @PreAuthorize("hasAuthority('developers:read')")
+    @PreAuthorize("hasAuthority('developers:write')")
     public String findAll(Model model) {
         List<Position> positions = positionService.findAll();
         model.addAttribute("position", positions);

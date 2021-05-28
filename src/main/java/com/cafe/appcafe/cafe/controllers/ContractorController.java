@@ -24,7 +24,7 @@ public class ContractorController {
     }
 
     @GetMapping("/contractor")
-    @PreAuthorize("hasAuthority('developers:read')")
+    @PreAuthorize("hasAuthority('developers:write')")
     public String findAll(Model model) {
         List<Contractor> contractorList = contractorService.findAll();
         model.addAttribute("contractor", contractorList);

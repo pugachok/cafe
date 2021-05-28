@@ -26,15 +26,15 @@ public class OrderController {
     }
 
     @GetMapping("/order")
-    @PreAuthorize("hasAuthority('developers:read')")
+    @PreAuthorize("hasAuthority('developers:write')")
     public String findAll(Model model) {
         List<Order> orderList = orderService.findAllOrders();
         model.addAttribute("order", orderList);
         return "order/order-list";
     }
 
-    @GetMapping("/order-today")
-    @PreAuthorize("hasAuthority('developers:write')")
+    @GetMapping("/actual-order")
+    @PreAuthorize("hasAuthority('developers:read')")
     public String findAllActualOrder(Model model) {
         List<Order> orderList = orderService.findAllActualOrder(LocalDate.now().toString());
         model.addAttribute("order", orderList);

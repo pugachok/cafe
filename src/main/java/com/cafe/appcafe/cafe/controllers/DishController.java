@@ -24,7 +24,7 @@ public class DishController {
     }
 
     @GetMapping("/dish")
-    @PreAuthorize("hasAuthority('developers:read')")
+    @PreAuthorize("hasAuthority('developers:write')")
     public String findAll(Model model) {
         List<Dish> dishes = dishService.findAll();
         model.addAttribute("dish", dishes);

@@ -32,6 +32,10 @@ public class MenuService {
         return dishRepository.findAll();
     }
 
+    public List<Menu> findActualMenu(String date) {
+        return menuRepository.findMenusByDate(date);
+    }
+
     public Menu save(String nameDish, double price, String date) {
         Dish dish = dishRepository.findByNameDishes(nameDish);
         return menuRepository.save(new Menu(dish, price, date));

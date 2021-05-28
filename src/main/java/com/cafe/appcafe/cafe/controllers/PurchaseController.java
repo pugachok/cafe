@@ -26,7 +26,7 @@ public class PurchaseController {
     }
 
     @GetMapping("/purchase")
-    @PreAuthorize("hasAuthority('developers:read')")
+    @PreAuthorize("hasAuthority('developers:write')")
     public String findAll(Model model) {
         List<Purchase> purchaseList = purchaseService.findAllPurchase();
         model.addAttribute("purchase", purchaseList);

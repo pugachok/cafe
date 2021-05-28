@@ -26,7 +26,7 @@ public class IngredientInTheCompositionController {
     }
 
     @GetMapping("/ingredient-in-the-composition")
-    @PreAuthorize("hasAuthority('developers:read')")
+    @PreAuthorize("hasAuthority('developers:write')")
     public String findAll(Model model) {
         List<IngredientInTheComposition> ingredientInTheCompositionList = ingredientInTheCompositionService.findAllIngredientInTheComposition();
         model.addAttribute("ingredientComposition", ingredientInTheCompositionList);

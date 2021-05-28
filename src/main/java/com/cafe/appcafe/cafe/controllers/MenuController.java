@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -30,11 +31,19 @@ public class MenuController {
     }
 
     @GetMapping("/menu")
-    @PreAuthorize("hasAuthority('developers:read')")
+    @PreAuthorize("hasAuthority('developers:write')")
     public String findAll(Model model) {
         List<Menu> menuList = menuService.findAll();
         model.addAttribute("menu", menuList);
         return "menu/menu-list";
+    }
+
+    @GetMapping("/actual-menu")
+    @PreAuthorize("hasAuthority('developers:read')")
+    public String findAllActualMenu(Model model) {
+        List<Menu> menuList = menuService.findActualMenu(LocalDate.now().toString());
+        model.addAttribute("menu", menuList);
+        return "menu/menu-actual";
     }
 
     @GetMapping("/menu-create")
