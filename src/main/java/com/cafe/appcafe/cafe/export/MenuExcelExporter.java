@@ -11,6 +11,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -59,21 +60,21 @@ public class MenuExcelExporter {
         int rowCount = 1;
 
         for (Menu menu : menuList) {
-            Row row = sheet.createRow(rowCount++);
+            if (menu.getDate().equals(LocalDate.now().toString())) {
+                Row row = sheet.createRow(rowCount++);
 
-            Cell cell = row.createCell(0);
-            cell.setCellValue(menu.getIdMenu());
+                Cell cell = row.createCell(0);
+                cell.setCellValue(menu.getIdMenu());
 
-            cell = row.createCell(1);
-            cell.setCellValue(menu.getDish().getNameDishes());
+                cell = row.createCell(1);
+                cell.setCellValue(menu.getDish().getNameDishes());
 
-            cell = row.createCell(2);
-            cell.setCellValue(menu.getPrice());
+                cell = row.createCell(2);
+                cell.setCellValue(menu.getPrice());
 
-            cell = row.createCell(3);
-            cell.setCellValue(menu.getDate());
-
-
+                cell = row.createCell(3);
+                cell.setCellValue(menu.getDate());
+            }
         }
     }
 

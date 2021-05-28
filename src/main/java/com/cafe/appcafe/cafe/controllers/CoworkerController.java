@@ -26,7 +26,7 @@ public class CoworkerController {
     }
 
     @GetMapping("/coworker")
-    @PreAuthorize("hasAuthority('developers:write')")
+    @PreAuthorize("hasAuthority('developers:read')")
     public String findAll(Model model) {
         List<Coworker> coworkers = coworkerService.findAll();
         model.addAttribute("coworker", coworkers);

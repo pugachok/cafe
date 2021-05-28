@@ -1,4 +1,27 @@
-<div th:fragment="header">
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org"-->
+<!--                xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Добавление</title>-->
+<!--    &lt;!&ndash; Main Styles &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="/static/styles/style.min.css" th:href="@{/styles/style.min.css}">-->
+<!--    &lt;!&ndash; mCustomScrollbar &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="/static/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css" th:href="@{/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css}">-->
+<!--    &lt;!&ndash; Waves Effect &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="/static/plugin/waves/waves.min.css" th:href="@{/plugin/waves/waves.min.css}">-->
+<!--    &lt;!&ndash; Sweet Alert &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="/static/plugin/sweet-alert/sweetalert.css" th:href="@{/plugin/sweet-alert/sweetalert.css}">-->
+<!--    &lt;!&ndash; Color Picker &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="/static/color-switcher/color-switcher.min.css" th:href="@{/color-switcher/color-switcher.min.css}">-->
+<!--    <link rel="stylesheet" type="text/css" href="/static/style/button-create.css" th:href="@{/style/button-create.css}">-->
+<!--</head>-->
+<!--<body>-->
+
+
+
+
+<div th:fragment="header" >
     <div class="main-menu">
         <header class="header">
             <a href="/auth/index" class="logo">Кафе KAVA</a>
@@ -33,7 +56,7 @@
                         <a class="waves-effect" href="/auth/index"><i class="menu-icon fa fa-calendar"></i><span>Календарь</span></a>
                     </li>
                     <li>
-                        <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-th-large"></i><span>Актуальное</span><span class="menu-arrow fa fa-angle-down"></span></a>
+                        <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-flag"></i><span>Актуальное</span><span class="menu-arrow fa fa-angle-down"></span></a>
                         <ul class="sub-menu js__content">
                             <li><a href="/actual-menu">Меню сегодня</a></li>
                             <li><a href="/actual-order">Заказы сегодня</a></li>
@@ -94,3 +117,9 @@
         </div>
     </div>
 </div>
+
+
+
+
+<!--</body>-->
+<!--</html>-->

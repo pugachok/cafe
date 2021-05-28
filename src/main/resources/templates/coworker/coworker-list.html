@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,6 +31,7 @@
     <link rel="stylesheet" href="/static/plugin/datatables/extensions/Responsive/css/responsive.bootstrap.min.css" th:href="@{/plugin/datatables/extensions/Responsive/css/responsive.bootstrap.min.css}">
 </head>
 <body>
+
 
 <div th:insert="blocks/header :: header"></div>
 <div id="wrapper">
