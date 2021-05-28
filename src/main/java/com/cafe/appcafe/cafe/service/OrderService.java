@@ -41,6 +41,10 @@ public class OrderService {
         return menuRepository.findAll();
     }
 
+    public List<Order> findAllActualOrder(String date) {
+        return orderRepository.findOrdersByDateOrder(date);
+    }
+
     public Order save(String nameCoworker, String nameDish, String dateMenu, String date, String time, int numberTable, int count) {
         Coworker coworker = coworkerRepository.findByFio(nameCoworker);
         Menu menu = menuRepository.findMenuByDish_NameDishesAndDate(nameDish, dateMenu);

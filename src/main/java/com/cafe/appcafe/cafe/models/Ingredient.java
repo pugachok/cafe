@@ -32,6 +32,10 @@ public class Ingredient {
     @OneToMany
     private List<Purchase> purchaseList;
 
+    public List<Purchase> getPurchaseList() {
+        return purchaseList;
+    }
+
     public Long getIdIngredient() {
         return idIngredient;
     }

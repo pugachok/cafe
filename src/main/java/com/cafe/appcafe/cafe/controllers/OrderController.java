@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -31,6 +31,14 @@ public class OrderController {
         List<Order> orderList = orderService.findAllOrders();
         model.addAttribute("order", orderList);
         return "order/order-list";
+    }
+
+    @GetMapping("/order-today")
+    @PreAuthorize("hasAuthority('developers:write')")
+    public String findAllActualOrder(Model model) {
+        List<Order> orderList = orderService.findAllActualOrder(LocalDate.now().toString());
+        model.addAttribute("order", orderList);
+        return "order/actual-order";
     }
 
     @GetMapping("/order-create")
