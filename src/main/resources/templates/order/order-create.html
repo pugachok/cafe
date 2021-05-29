@@ -43,7 +43,7 @@
                                     <select class="form-control select2_1" name="arrayNameDish">
                                         <option th:each="m:${menu}"
                                                 th:value="${m.getDish().getNameDishes()} + '|' + ${m.getDate()}"
-                                                th:text="${m.getDish().getNameDishes() + ' | ' + m.getDate()}"
+                                                th:text="${m.getDish().getNameDishes()} + '|' + ${m.getDate()}"
                                                 th:type="text">
                                         </option>
                                     </select>
