@@ -2,10 +2,6 @@ package com.cafe.appcafe.cafe.controllers;
 
 import com.cafe.appcafe.cafe.models.Position;
 import com.cafe.appcafe.cafe.service.PositionService;
-import jdk.jshell.spi.ExecutionControl;
-import org.hibernate.exception.ConstraintViolationException;
-import org.hibernate.validator.internal.metadata.raw.ConstrainedElement;
-import org.hibernate.validator.internal.metadata.raw.ConstrainedExecutable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -14,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.HttpServerErrorException;
 
 import java.util.List;
 
@@ -30,7 +24,7 @@ public class PositionController {
     }
 
     @GetMapping("/position")
-    @PreAuthorize("hasAuthority('developers:read')")
+    @PreAuthorize("hasAuthority('developers:write')")
     public String findAll(Model model) {
         List<Position> positions = positionService.findAll();
         model.addAttribute("position", positions);

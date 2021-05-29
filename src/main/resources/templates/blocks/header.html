@@ -63,7 +63,7 @@
                             <li><a href="/actual-dish-in-order">Доставка сегодня</a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li sec:authorize="hasAuthority('developers:write')">
                         <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-th-large"></i><span>Формы</span><span class="menu-arrow fa fa-angle-down"></span></a>
                         <ul class="sub-menu js__content">
                             <li><a href="/position-create">Должности</a></li>
@@ -78,7 +78,7 @@
                             <li><a href="/contractor-create">Поставщики</a></li>
                         </ul>
                     </li>
-                    <li>
+                    <li sec:authorize="hasAuthority('developers:write')">
                         <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-table"></i><span>Таблицы</span><span class="menu-arrow fa fa-angle-down"></span></a>
                         <ul class="sub-menu js__content">
                             <li><a href="/position">Должности</a></li>
