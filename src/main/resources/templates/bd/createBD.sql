@@ -7,9 +7,6 @@ DROP FOREIGN KEY Orders_Coworkers;
 ALTER TABLE coworker
 DROP FOREIGN KEY Coworker_Position;
 
-# ALTER TABLE dishes_in_order
-# DROP FOREIGN KEY dishes_in_order_order_with_delivery;
-
 ALTER TABLE dishes_in_order
 DROP FOREIGN KEY dishes_in_order_menu;
 
@@ -106,13 +103,6 @@ CREATE TABLE menu (
     , data date NOT NULL
 );
 
-# CREATE TABLE order_with_delivery (
-#     id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY
-#     , address nvarchar(40) NOT NULL
-#     , phone_number nvarchar(14) NOT NULL
-#     , data date NOT NULL
-# );
-
 CREATE TABLE purchase (
     id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY
     , id_ingredient BIGINT NOT NULL
@@ -152,10 +142,6 @@ ALTER TABLE dishes_in_order
 ADD CONSTRAINT dishes_in_order_menu FOREIGN KEY (id_menu)
 REFERENCES menu(id);
 
-# ALTER TABLE dishes_in_order
-# ADD CONSTRAINT dishes_in_order_order_with_delivery FOREIGN KEY (id_order_with_delivery)
-# REFERENCES order_with_delivery(id);
-
 ALTER TABLE ingredients_in_the_composition
 ADD CONSTRAINT ingredients_in_the_composition_dish FOREIGN KEY (id_dish)
 REFERENCES dish(id);
@@ -171,12 +157,5 @@ REFERENCES ingredient(id);
 ALTER TABLE purchase
 ADD CONSTRAINT purchase_contractor FOREIGN KEY (id_contractors)
 REFERENCES contractor(id);
-
-# ALTER TABLE position
-# ADD CONSTRAINT position_position UNIQUE(name_position);
-#
-#
-# ALTER TABLE Меню
-#     ADD CONSTRAINT CHECK_Меню_Цена_блюда CHECK(Цена_блюда > 0)
 
 
