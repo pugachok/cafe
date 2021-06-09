@@ -14,7 +14,7 @@
     <name>cafe</name>
     <description>cafe Spring boot</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -105,12 +105,6 @@
                     <source>14</source>
                     <target>14</target>
                 </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>com.heroku.sdk</groupId>
-                <artifactId>heroku-maven-plugin</artifactId>
-                <version>3.0.3</version>
             </plugin>
 
         </plugins>
