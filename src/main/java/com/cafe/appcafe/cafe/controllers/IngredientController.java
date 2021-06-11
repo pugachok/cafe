@@ -28,7 +28,7 @@ public class IngredientController {
     public String findAll(Model model) {
         List<Ingredient> ingredientList = ingredientService.findAll();
         model.addAttribute("ingredient", ingredientList);
-        return "/ingredient/ingredient-list";
+        return "ingredient/ingredient-list";
     }
 
     @GetMapping("/ingredient-create")
@@ -51,7 +51,7 @@ public class IngredientController {
             return "redirect:/ingredient";
         }
         model.addAttribute("ingredient", ingredientService.ingredientList(id));
-        return "/ingredient/ingredient-update";
+        return "ingredient/ingredient-update";
     }
 
     @PostMapping("/ingredient-update/{id}")
