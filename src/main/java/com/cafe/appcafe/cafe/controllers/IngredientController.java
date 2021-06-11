@@ -34,7 +34,7 @@ public class IngredientController {
     @GetMapping("/ingredient-create")
     @PreAuthorize("hasAuthority('developers:write')")
     public String createForm() {
-        return "/ingredient/ingredient-create";
+        return "ingredient/ingredient-create";
     }
 
     @PostMapping("/ingredient-create")
